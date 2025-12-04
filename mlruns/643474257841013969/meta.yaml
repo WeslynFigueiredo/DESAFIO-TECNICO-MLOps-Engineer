@@ -1,0 +1,6 @@
+artifact_location: file:///C:/Users/wesly/Downloads/projeto/mlops-fish-weight/mlruns/643474257841013969
+creation_time: 1764731864375
+experiment_id: '643474257841013969'
+last_update_time: 1764731864375
+lifecycle_stage: active
+name: fish_weight_regression

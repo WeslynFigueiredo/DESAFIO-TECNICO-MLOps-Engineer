@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/wesly/Downloads/projeto/mlops-fish-weight/mlruns/643474257841013969/models/m-681f7b5019d242f19d0e5bbd2f2aed85/artifacts
+creation_timestamp: 1764732656308
+experiment_id: '643474257841013969'
+last_updated_timestamp: 1764732662859
+model_id: m-681f7b5019d242f19d0e5bbd2f2aed85
+model_type: null
+name: model
+source_run_id: 4b8e6cdfd00647eaad9993003c54fd84
+status: 2
+status_message: null

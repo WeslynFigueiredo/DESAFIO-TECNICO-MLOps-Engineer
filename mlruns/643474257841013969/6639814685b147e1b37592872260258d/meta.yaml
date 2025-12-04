@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/wesly/Downloads/projeto/mlops-fish-weight/mlruns/643474257841013969/6639814685b147e1b37592872260258d/artifacts
+end_time: 1764731874399
+entry_point_name: ''
+experiment_id: '643474257841013969'
+lifecycle_stage: active
+run_id: 6639814685b147e1b37592872260258d
+run_name: calm-dolphin-177
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764731864610
+status: 3
+tags: []
+user_id: wesly

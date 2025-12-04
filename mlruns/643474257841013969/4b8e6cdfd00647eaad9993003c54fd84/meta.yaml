@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/wesly/Downloads/projeto/mlops-fish-weight/mlruns/643474257841013969/4b8e6cdfd00647eaad9993003c54fd84/artifacts
+end_time: 1764732662876
+entry_point_name: ''
+experiment_id: '643474257841013969'
+lifecycle_stage: active
+run_id: 4b8e6cdfd00647eaad9993003c54fd84
+run_name: thundering-fowl-687
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764732656178
+status: 3
+tags: []
+user_id: wesly

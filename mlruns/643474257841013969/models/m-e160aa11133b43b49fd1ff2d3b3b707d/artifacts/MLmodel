@@ -1,0 +1,22 @@
+artifact_path: file:///C:/Users/wesly/Downloads/projeto/mlops-fish-weight/mlruns/643474257841013969/models/m-e160aa11133b43b49fd1ff2d3b3b707d/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.2
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.6.0
+model_id: m-e160aa11133b43b49fd1ff2d3b3b707d
+model_size_bytes: 633
+model_uuid: m-e160aa11133b43b49fd1ff2d3b3b707d
+prompts: null
+run_id: 6639814685b147e1b37592872260258d
+utc_time_created: '2025-12-03 03:17:44.814201'
