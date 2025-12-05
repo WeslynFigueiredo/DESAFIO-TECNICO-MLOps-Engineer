@@ -1,4 +1,4 @@
-# Predição de peso e biomassa de peixes
+# 🐟 Predição de Peso e Biomassa de Peixes
 
 ## Problema
 
@@ -47,52 +47,128 @@ O foco é demonstrar um pipeline de MLOps (treino → API → app → logs → d
 
 O script de treino (ajuste o nome conforme seu repo, por exemplo `src/train_model.py`):
 
-python src/train_model.py
+```bash
+python src/train.py
+```
 
+O script realiza:
 
-Esse script deve:
-
-- ler o dataset tabular;
-- treinar o modelo de regressão;
-- salvar o artefato em `models/model.pkl` (carregado por `src/infer.py`).
+- **Leitura do dataset tabular**
+- **Treinamento do modelo de regressão**
+- **Logging automático no MLflow**
+- **Salvamento do artefato em `models/`**
 
 ---
 
-## Como realizar a inferência
+## ⚙️ Execução da Inferência
 
-### Subir a API
+### 1️⃣ Subir a API FastAPI
 
+```bash
 uvicorn src.api.main:app --reload --host 0.0.0.0 --port 8000
+```
 
+A API ficará disponível em:
 
-### Testar via Streamlit
+```
+http://localhost:8000
+```
 
+### 2️⃣ Rodar o Streamlit
 
-- Aba **Medidas manuais** → envia JSON para `/predict`.  
-- Aba **Imagem do peixe** → envia imagem + parâmetros para `/predict-image` e mostra o contorno usado para o cálculo.
+```bash
+streamlit run app_streamlit.py
+```
 
-Também é possível chamar a API diretamente via HTTP (curl, Postman etc.) enviando JSON ou form-data de imagem.
+O app roda em:
+
+```
+http://localhost:8501
+```
 
 ---
 
-## Dependências principais
+## 📊 Executando o MLflow UI
+
+```bash
+mlflow ui --backend-store-uri mlruns
+```
+
+Acesse:
+
+```
+http://localhost:5000
+```
+
+---
+
+## 🐳 Execução via Docker
+
+### 🔨 Build da imagem
+
+```bash
+docker build -t fish-weight-api .
+```
+
+### ▶️ Rodar o container
+
+```bash
+docker run -p 8000:8000 fish-weight-api
+```
+
+API disponível em:
+
+```
+http://localhost:8000
+```
+
+---
+
+## 📬 Exemplos de chamadas via cURL
+
+### 1️⃣ Predição manual
+
+```bash
+curl -X POST "http://localhost:8000/predict?tank_id=teste01"     -H "Content-Type: application/json"     -d '{
+          "length1": 23.2,
+          "length2": 25.4,
+          "length3": 30.0,
+          "height": 11.52,
+          "width": 4.02
+        }'
+```
+
+### 2️⃣ Predição via imagem
+
+```bash
+curl -X POST "http://localhost:8000/predict-image?quantity=10&tank_id=tank_3"      -F "file=@peixe.jpg"
+```
+
+---
+
+## 📦 Principais Dependências
 
 - Python 3.10+
-- `fastapi`, `uvicorn`, `pydantic`
-- `numpy`, `pandas`, `scikit-learn` (ou lib usada no modelo)
-- `Pillow`, `opencv-python`
-- `requests`, `streamlit`
+- FastAPI, Uvicorn
+- Pandas, NumPy, Scikit-learn
+- OpenCV, Pillow
+- Streamlit
+- Requests
+- MLflow
 
-Instalação (exemplo):
+Instalação:
 
-pip install fastapi uvicorn pydantic numpy pandas scikit-learn pillow opencv-python requests streamlit
-
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
-## Possíveis melhorias
+## 🚀 Possíveis Melhorias Futuras
 
-- Substituir o mock de visão (contornos) por um modelo de detecção/segmentação de peixes treinado em dataset anotado (ex.: YOLO, Mask R‑CNN).  
-- Calibrar pixels → centímetros usando referência física na cena.  
-- Especializar modelos por espécie/tipo de tanque.  
-- Monitorar métricas de modelo e API (latência, erro, drift) em um painel de MLOps.
+- Uso de YOLO / Mask R-CNN para visão computacional real
+- Calibração px → cm
+- Modelos especializados por espécie
+- Monitoramento de drift (EvidentlyAI)
+- CI/CD com GitHub Actions
+- Deploy serverless (Lambda) ou container orchestration (ECS/EKS)
